@@ -1,0 +1,1 @@
+23-09-2025  17:40:47 [ERROR]: Error in registerUser: The "password" argument must be of type string or an instance of ArrayBuffer, Buffer, TypedArray, or DataView. Received undefined
