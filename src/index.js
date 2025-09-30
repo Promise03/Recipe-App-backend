@@ -56,26 +56,26 @@ app.use("/api/user",  userRoutes),
 app.use("/api/recipes", recipeRoutes);
 app.use("/api/analytis", analytisRoutes );
 //directory for client build files 
-const clientBuildPath = path.join(__dirname, "..", "..", "frontend", "build");
-const clientDistPath = path.join(__dirname, "..", "..", "frontend", "dist");
+// const clientBuildPath = path.join(__dirname, "..", "..", "frontend", "build");
+// const clientDistPath = path.join(__dirname, "..", "..", "frontend", "dist");
 
 // conditionally serve client buid files if in production
-if(process.env.ENV === "production")
-{
-  if(fs.existsSync(clientBuildPath)){
-    app.use(express.static(clientBuildPath));
-    app.get("*", (req, res) =>{
-      res.sendFile(path.join(clientBuildPath, "index.html"))
-    });
-  }else if (fs.existsSync(clientDistPath)){
-    app.use(express.static(clientDistPath));
-    app.get("*", (req, res) => {
-      res.sendFile(path.join(clientDistPath, "index.html"))
-    });
-  } else{ console.log("Client build files not found")
+// if(process.env.ENV === "production")
+// {
+//   if(fs.existsSync(clientBuildPath)){
+//     app.use(express.static(clientBuildPath));
+//     app.get("*", (req, res) =>{
+//       res.sendFile(path.join(clientBuildPath, "index.html"))
+//     });
+//   }else if (fs.existsSync(clientDistPath)){
+//     app.use(express.static(clientDistPath));
+//     app.get("*", (req, res) => {
+//       res.sendFile(path.join(clientDistPath, "index.html"))
+//     });
+//   } else{ console.log("Client build files not found")
 
-  }
-}
+//   }
+// }
 
 dbConnection()
   .then(() => {
